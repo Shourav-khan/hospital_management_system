@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\adminController;
 use App\Http\Controllers\homeController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,6 +22,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[homeController::class,'index']);
 Route::get('/home',[homeController::class,'userBasedView']);
+Route::get('/doctors_list_add',[adminController::class,'addDoctor'])->name('add.doctor');
 
 
 
