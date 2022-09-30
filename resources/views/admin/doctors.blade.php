@@ -35,10 +35,66 @@
 
     @include('admin.sidebar')
     <!-- partial -->
-    <div class="container-fluid page-body-wrapper">
+
         <!-- partial:partials/_navbar.html -->
         @include('admin.navigation')
         <!-- partial -->
+
+
+    <div class="container-fluid page-body-wrapper d-flex justify-content-center " >
+
+
+
+        <div style="padding-top: 50px">
+
+            <form action="{{route('store_doctor')}}" method="POST" enctype="multipart/form-data">
+
+                @csrf
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Doctor Name</label>
+                        <input type="text" name="d_name" class="form-control" style="color: white" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Doctor Name">
+                    </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Phone number</label>
+                    <input type="number" name="p_number" class="form-control" style="color: white" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Phone Number">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Doctor Specialist</label>
+
+                    <select name="speciality" class="form-select" aria-label="Default select example">
+                        <option selected>======Select=======</option>
+                        <option value="Aurthopadic">Aurthopadic</option>
+                        <option value="Skin">Skin</option>
+                        <option value="Heart">Heart</option>
+                        <option value="Medicine">Medicine</option>
+                        <option value="Thelasemia">Thelasemia</option>
+                        <option value="M.S">M.S</option>
+                    </select>
+
+                    </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Room Number</label>
+                    <input type="number" name="room" class="form-control" style="color: white" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Room Number">
+                </div>
+
+
+                <div class="form-group">
+                <label class="form-label" for="customFile">Select Image</label>
+                <input type="file" name="file"  class="form-control" id="customFile" />
+                </div>
+
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+
+            </form>
+
+        </div>
+
+
 
         <!-- main-panel ends -->
     </div>

@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[homeController::class,'index']);
 Route::get('/home',[homeController::class,'userBasedView']);
 Route::get('/doctors_list_add',[adminController::class,'addDoctor'])->name('add.doctor');
+Route::post('/add_doctors',[adminController::class,'adding'])->name('store_doctor');
 
 
 
