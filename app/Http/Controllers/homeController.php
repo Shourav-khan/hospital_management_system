@@ -67,11 +67,34 @@ class homeController extends Controller
 
         $appoinment->save();
 
-        return redirect()->back()->with('message','Appoinment is successfully done');
+        return redirect()->back()->with('message','Appointment is successfully done');
+
+    }
+
+    public function apppointments(){
+
+        if(Auth::id()){
+
+            $user = Auth::user()->id;
+
+            $appointments= Appoinment::where('user_id',$user)->get();
+
+            return view('user.my_appointment',compact('appointments'));
+
+        }else
+
+            return redirect()->back();
 
 
+    }
 
+    public function cancelAppointment($id)
+    {
+        $appoint = Appoinment::find($id);
 
+        $appoint->delete();
+
+        return redirect()->back()->with('dlt','Appointment delete successfully');
     }
 
 

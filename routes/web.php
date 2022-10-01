@@ -25,6 +25,8 @@ Route::get('/home',[homeController::class,'userBasedView']);
 Route::get('/doctors_list_add',[adminController::class,'addDoctor'])->name('add.doctor');
 Route::post('/add_doctors',[adminController::class,'adding'])->name('store_doctor');
 Route::post('/appoinment',[homeController::class,'appoinmentIn'])->name('doctor.appoinment');
+Route::get('/show_appointment',[homeController::class,'apppointments'])->name('show.appointment');
+Route::get('/cancel_appoint/{id}',[homeController::class,'cancelAppointment'])->name('delete.appoint');
 
 
 
