@@ -45,7 +45,15 @@
 
 
 
+
+
         <div style="padding-top: 50px">
+
+            @if(session()->has('message'))
+                <div class="alert alert-success">
+                    {{ session()->get('message') }}
+                </div>
+            @endif
 
             <form action="{{route('store_doctor')}}" method="POST" enctype="multipart/form-data">
 
@@ -53,18 +61,18 @@
 
                     <div class="form-group">
                         <label for="exampleInputEmail1">Doctor Name</label>
-                        <input type="text" name="d_name" class="form-control" style="color: white" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Doctor Name">
+                        <input type="text" name="d_name" class="form-control" style="color: white" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Doctor Name" required>
                     </div>
 
                 <div class="form-group">
                     <label for="exampleInputEmail1">Phone number</label>
-                    <input type="number" name="p_number" class="form-control" style="color: white" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Phone Number">
+                    <input type="number" name="p_number" class="form-control" style="color: black" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Phone Number" required>
                 </div>
 
                 <div class="form-group">
                     <label for="exampleInputEmail1">Doctor Specialist</label>
 
-                    <select name="speciality" class="form-select" aria-label="Default select example">
+                    <select name="speciality" class="form-select" aria-label="Default select example" required>
                         <option selected>======Select=======</option>
                         <option value="Aurthopadic">Aurthopadic</option>
                         <option value="Skin">Skin</option>
@@ -78,13 +86,13 @@
 
                 <div class="form-group">
                     <label for="exampleInputEmail1">Room Number</label>
-                    <input type="number" name="room" class="form-control" style="color: white" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Room Number">
+                    <input type="number" name="room" class="form-control" style="color: black" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Room Number" required>
                 </div>
 
 
                 <div class="form-group">
                 <label class="form-label" for="customFile">Select Image</label>
-                <input type="file" name="file"  class="form-control" id="customFile" />
+                <input type="file" name="file" style="color: white"  class="form-control" id="customFile" required>
                 </div>
 
 
