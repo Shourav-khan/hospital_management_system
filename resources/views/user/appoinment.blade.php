@@ -2,7 +2,10 @@
     <div class="container">
         <h1 class="text-center wow fadeInUp">Make an Appointment</h1>
 
-        <form class="main-form">
+
+
+        <form class="main-form" action="{{route('doctor.appoinment')}}" method="POST">
+            @csrf
             <div class="row mt-5 ">
                 <div class="col-12 col-sm-6 py-2 wow fadeInLeft">
                     <input type="text" name="full_name" class="form-control" placeholder="Full name">
@@ -14,13 +17,13 @@
                     <input type="date" name="date" class="form-control">
                 </div>
                 <div class="col-12 col-sm-6 py-2 wow fadeInRight" data-wow-delay="300ms">
-                    <select name="departement"  id="departement" class="custom-select">
+                    <select name="doctors"  id="department" class="custom-select">
 
                         <option>----Select Doctor-----</option>
 
                         @foreach($doctors as $doctor)
-                        <option value="{{$doctor->name}}">
-                            {{$doctor->name}} ----Speciality--- {{$doctor->speciality}}
+                        <option value="{{$doctor->d_name}}">
+                            {{$doctor->d_name}} ----Speciality--- {{$doctor->speciality}}
                         </option>
 
                         @endforeach

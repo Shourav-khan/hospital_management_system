@@ -27,6 +27,12 @@
 
 <header >
 
+    @if(session()->has('message'))
+        <div class="alert alert-success">
+            {{ session()->get('message') }}
+        </div>
+    @endif
+
     <div class="topbar">
         <div class="container">
             <div class="row">
@@ -105,8 +111,7 @@
                                         @auth
 
                                             <x-app-layout>
-
-
+                                                
                                             </x-app-layout>
 
 
