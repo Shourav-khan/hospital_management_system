@@ -36,4 +36,10 @@ class adminController extends Controller
 
 
     }
+
+    public function adminAppointments(){
+
+        return view('admin.appointments');
+
+    }
 }

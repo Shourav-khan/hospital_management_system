@@ -65,5 +65,14 @@
             </a>
         </li>
 
+        <li class="nav-item menu-items">
+            <a class="nav-link" href="{{route('admin.appointments')}}">
+              <span class="menu-icon">
+                <i class="mdi mdi-account-box"></i>
+              </span>
+                <span class="menu-title">Appointments</span>
+            </a>
+        </li>
+
     </ul>
 </nav>

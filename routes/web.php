@@ -27,6 +27,7 @@ Route::post('/add_doctors',[adminController::class,'adding'])->name('store_docto
 Route::post('/appoinment',[homeController::class,'appoinmentIn'])->name('doctor.appoinment');
 Route::get('/show_appointment',[homeController::class,'apppointments'])->name('show.appointment');
 Route::get('/cancel_appoint/{id}',[homeController::class,'cancelAppointment'])->name('delete.appoint');
+Route::get('/admin/show/users/appointments', [adminController::class,'adminAppointments'])->name('admin.appointments');
 
 
 
