@@ -27,7 +27,11 @@ Route::post('/add_doctors',[adminController::class,'adding'])->name('store_docto
 Route::post('/appoinment',[homeController::class,'appoinmentIn'])->name('doctor.appoinment');
 Route::get('/show_appointment',[homeController::class,'apppointments'])->name('show.appointment');
 Route::get('/cancel_appoint/{id}',[homeController::class,'cancelAppointment'])->name('delete.appoint');
-Route::get('/admin/show/users/appointments', [adminController::class,'adminAppointments'])->name('admin.appointments');
+Route::get('/admin_show_user_appoint', [adminController::class,'adminAppointments'])->name('admin.appointments');
+Route::get('approve/{id}',[adminController::class, 'approve'])->name('approve');
+Route::get('cancel/{id}',[adminController::class, 'cancel'])->name('cancel');
+Route::get('/all_doctors', [adminController::class, 'allDoctors'])->name('all.doctors');
+Route::get('delete/{id}', [adminController::class, 'delete'])->name('delete.doctor');
 
 
 

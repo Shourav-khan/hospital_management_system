@@ -82,4 +82,8 @@ class AppoinmentController extends Controller
     {
         //
     }
+
+    public function getAllAppointment(){
+        return Appoinment::all();
+    }
 }
