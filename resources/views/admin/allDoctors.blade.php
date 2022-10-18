@@ -73,7 +73,7 @@
                                 <img src="ekhaneipicGula/{{$dctr->file}}">
                             </td>
                             <td>
-                                <a class="btn btn-info" href="">update</a>
+                                <a class="btn btn-info" href="{{route('update.doctor',$dctr->id)}}">update</a>
                                 <a onclick="return confirm('are you sure to delete this?')" class="btn btn-danger" href="{{route('delete.doctor', $dctr->id)}}">delete</a>
                             </td>
 

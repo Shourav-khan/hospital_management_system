@@ -87,4 +87,37 @@ class adminController extends Controller
 
         return redirect()->back();
     }
+
+    public function updateDoctor($id){
+
+        $data = Doctor::find($id);
+
+        return view('admin.updateDoctor',compact('data'));
+    }
+
+    public function updateDone(Request $request, $id){
+
+        $doctors = Doctor::all();
+
+        $doctors->d_name=$request->d_name;
+        $doctors->p_number=$request->p_number;
+        $doctors->speciality=$request->speciality;
+        $doctors->room=$request->room;
+
+
+
+
+
+        $image = $request->file;
+        if($image){
+        $imageName = time().'.'.$image->getClientOriginalExtension();
+        $image->move('ekhaneipicGula', $imageName);
+        $doctors->file=$imageName;
+
+        }
+
+        $doctors->save();
+
+        return redirect()->back();
+    }
 }
