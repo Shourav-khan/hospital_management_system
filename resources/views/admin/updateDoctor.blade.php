@@ -43,29 +43,41 @@
 
         <div class="container-fluid page-body-wrapper d-flex justify-content-center " >
 
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
             <div class="align-self-center" style="padding: 50px; border: 1px solid whitesmoke">
                 <form action="{{route('update.done', $data->id)}}" method="POST" enctype="multipart/form-data">
 
                     @csrf
+                    @method('PUT')
 
                     <div class="form-group">
                         <label >Doctor Name</label>
-                        <input type="text" name="d_name" class="form-control" style="color: black" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$data->d_name}}" required>
+                        <input type="text" name="d_name" class="form-control" style="color: black" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$data->d_name}}" >
                     </div>
 
                     <div class="form-group">
                         <label>Phone number</label>
-                        <input type="number" name="p_number" class="form-control" style="color: black" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$data->p_number}}" required>
+                        <input type="number" name="p_number" class="form-control" style="color: black" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$data->p_number}}" >
                     </div>
 
                     <div class="form-group">
                         <label>Speciality</label>
-                        <input type="text" name="speciality" class="form-control" style="color: black" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$data->speciality}}" required>
+                        <input type="text" name="speciality" class="form-control" style="color: black" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$data->speciality}}" >
                     </div>
 
                     <div class="form-group">
                         <label>Room</label>
-                        <input type="number" name="room" class="form-control" style="color: black" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$data->room}}" required>
+                        <input type="number" name="room" class="form-control" style="color: black" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$data->room}}" >
                     </div>
 
                     <div class="form-group">
@@ -81,7 +93,7 @@
 
                     <div class="d-flex justify-content-center" style="margin-top: 40px">
 
-                        <button class="btn-danger w-50 rounded">save</button>
+                        <input type="submit" class="btn-danger w-50 rounded">
 
                     </div>
 

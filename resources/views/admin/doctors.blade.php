@@ -96,7 +96,7 @@
                 </div>
 
 
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <input type="submit" class="btn btn-primary">Submit</input>
 
             </form>
 

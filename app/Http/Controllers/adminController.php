@@ -95,28 +95,27 @@ class adminController extends Controller
         return view('admin.updateDoctor',compact('data'));
     }
 
-    public function updateDone(Request $request, $id){
-
-        $doctors = Doctor::all();
-
-        $doctors->d_name=$request->d_name;
-        $doctors->p_number=$request->p_number;
-        $doctors->speciality=$request->speciality;
-        $doctors->room=$request->room;
+    public function updateDone(Request $request, Doctor $doctors){
 
 
+        $request->validate([
+            'd_name' => 'required',
+            'p_number' => 'required',
+            'speciality' => 'required',
+            'room' => 'required',
+            'file' => 'required'
 
+        ]);
 
+//        $image = $request->file;
+//        if($image){
+//        $imageName = time().'.'.$image->getClientOriginalExtension();
+//        $image->move('ekhaneipicGula', $imageName);
+//        $doctors->file=$imageName;
+//
+//        }
 
-        $image = $request->file;
-        if($image){
-        $imageName = time().'.'.$image->getClientOriginalExtension();
-        $image->move('ekhaneipicGula', $imageName);
-        $doctors->file=$imageName;
-
-        }
-
-        $doctors->save();
+        $doctors->update($request->all());
 
         return redirect()->back();
     }

@@ -32,7 +32,7 @@ Route::get('cancel/{id}',[adminController::class, 'cancel'])->name('cancel');
 Route::get('/all_doctors', [adminController::class, 'allDoctors'])->name('all.doctors');
 Route::get('delete/{id}', [adminController::class, 'delete'])->name('delete.doctor');
 Route::get('update_doctor/{id}', [adminController::class, 'updateDoctor'])->name('update.doctor');
-Route::post('update_doctor_done/{id}',[adminController::class, 'updateDone' ])->name('update.done');
+Route::put('update_doctor_done/{id}',[adminController::class, 'updateDone' ])->name('update.done');
 
 
 
